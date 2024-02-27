@@ -1,13 +1,13 @@
 <p>cart works!</p>
 <div class="cart-container">
   <ul>
-    <li *ngFor="let item of storedItems; index as i">
+    <li *ngFor="let item of storedItems; index as i" (click)="showItem(item)">
       <div class="item-container">
         <div>{{ item["id"] }}</div>
         <div>{{ item.title }}</div>
         <div><img [src]="item['image']" alt="image" /></div>
       </div>
-      <div *showIf="true">
+      <div *ngIf="item['visible']" class="item-des">
         <p>{{ item.description }}</p>
       </div>
     </li>

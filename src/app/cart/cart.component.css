@@ -17,6 +17,13 @@ ul{
     
 }
 
+.item-des{
+    width: 70%;
+    text-align: center;
+    margin-inline: auto;
+    margin-block: 10px;
+}
+
 img{
     height: 40px;
     width: 40px;

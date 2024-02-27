@@ -8,13 +8,9 @@ import { RequestsService } from '../services/requests.service';
 })
 export class CartComponent {
   storedItems: any = [];
-  selectedItem: any;
-  counter: number = 0;
+  showItems: boolean = false;
 
-  constructor(
-    private requestService: RequestsService,
-    private elm: ElementRef
-  ) {}
+  constructor(private requestService: RequestsService) {}
 
   ngOnInit() {
     this.getStoreItems();
@@ -28,7 +24,13 @@ export class CartComponent {
     });
   }
 
-  setTitle(){
-    
+  showItem(itemObj: any): void {
+    this.storedItems.map((item: any) => {
+      if (item !== itemObj && item['visble']) {
+        item['visible'] = false;
+      }
+    });
+
+    itemObj['visible'] = !itemObj['visible'];
   }
 }
